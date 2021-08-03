@@ -12,3 +12,4 @@ namespace DoctorsOffice.Models
     public virtual ICollection<DoctorPatient> JoinEntities { get;}
   }
 }
+// this is a test
