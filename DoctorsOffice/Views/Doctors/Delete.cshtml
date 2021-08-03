@@ -4,4 +4,11 @@
 
 @model DoctorsOffice.Models.Doctor
 
+<h3> Would you like to fire this Doctor and delete them from the program?</h3>
 
+@Html.DisplayNameFor(model => model.DoctorName): @Html.DisplayFor(model => model.DoctorName)
+@using (Html.BeginForm())
+{
+  <input type="submit" value="Delete" />
+}
+@Html.ActionLink("Back to Doctor List", "Index")

@@ -4,4 +4,25 @@
 
 @model DoctorsOffice.Models.Doctor
 
+<h2>Doctor Details</h2>
+<hr />
+<h3>@Html.DisplayNameFor(model => model.DoctorName): @Html.DisplayFor(ModelExpressionProvider => ModelExpressionProvider.DoctorName) </h3>
 
+@if (@Model.JoinEntities.Count == 0)
+{
+  <h5>None of your Doctors current have patients</h5>
+}
+else
+{
+  <h4>All patients:</h4>
+  <ul>
+    @foreach (var join in Model.JoinEntities)
+    {
+      <li>@join.Patient.PatientName</li>
+    }
+  </ul>
+}
+
+<h5>@Html.ActionLink("Back to Doctor List", "Index")</h5>
+<h5>@Html.ActionLink("Edit Doctors", "Edit", new {id = Model.DoctorId})</h5>
+<h5>@Html.ActionLink("Delete a Doctor", "Delete", new {id = Model.DoctorId})</h5>

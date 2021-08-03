@@ -4,3 +4,26 @@
 
 @model DoctorsOffice.Models.Patient
 
+<h2>Patient Details</h2>
+<hr />
+<h3>@Html.DisplayNameFor(model => model.PatientName): @Html.DisplayFor(model => model.PatientName)</h3>
+
+@if (@Model.JoinEntities.Count == 0)
+{
+  <h4>This Patient is not assigned to a Physician </h4>
+}
+else
+{
+  <h4>The list of Doctors the Patient currently sees:</h4>
+  <ul>
+  @foreach (var join in Model.JoinEntities)
+    {
+      <li>@join.Doctor.DoctorName</li>
+    }
+  </ul>
+}
+
+<h5>@Html.ActionLink("Add a Doctor", "AddDoctor", new { id = Model.PatientId })
+  @Html.ActionLink("Back to Patient list", "Index")
+  @Html.ActionLink("Edit Patient", "Edit", new { id = Model.PatientId })
+  @Html.ActionLink("Delete Patient", "Delete", new { id = Model.PatientId })</h5>
