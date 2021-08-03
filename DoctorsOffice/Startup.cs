@@ -1,9 +1,9 @@
-using Microsoft.AspNetCore.Builder;
+  using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.EntityFrameworkCore;
 using DoctorsOffice.Models;
 
 namespace DoctorsOffice
@@ -25,7 +25,7 @@ namespace DoctorsOffice
       services.AddMvc();
 
       services.AddEntityFrameworkMySql()
-      .AddDbContext<ToDoListContext>(options => options
+      .AddDbContext<DoctorsOfficeContext>(options => options
       .UseMySql(Configuration["ConnectionStrings:DefaultConnection"], ServerVersion.AutoDetect(Configuration["ConnectionStrings:DefaultConnection"])));
     }
     public void Configure(IApplicationBuilder app)

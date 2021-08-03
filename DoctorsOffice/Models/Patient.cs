@@ -1,11 +1,14 @@
+using System.Collections.Generic;
 namespace DoctorsOffice.Models
 {
   public class Patient
   {
+    public Patient()
+    {
+      this.JoinEntities = new HashSet<DoctorPatient>();
+    }
     public int PatientId { get; set; }
     public string PatientName { get; set; }
-    public string PatientDescription { get; set; }
-    public int DoctorId { get; set; }
-    public virtual Doctor Doctor { get; set; }
+    public virtual ICollection<DoctorPatient> JoinEntities { get;}
   }
 }
