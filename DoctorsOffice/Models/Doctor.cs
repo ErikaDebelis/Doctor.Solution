@@ -5,10 +5,10 @@ namespace DoctorsOffice.Models
   {
     public Doctor()
     {
-      this.JointEntities = new HashSet<DoctorPatient>();
+      this.JoinEntities = new HashSet<DoctorPatient>();
     }
     public int DoctorId { get; set; }
     public string DoctorName { get; set; }
-    public virtual ICollection<DoctorPatient> JointEntities { get; set; }
+    public virtual ICollection<DoctorPatient> JoinEntities { get; set; }
   }
 }
